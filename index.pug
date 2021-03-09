@@ -1,13 +1,13 @@
 extends structure/_layout
 block content
-    audio(preload="auto")#brand-audio
+    audio
             source(src="assets/media/brand.wav")
             source(src="assets/media/brand.ogg")
             span
                 | Your browser does not support the
                 code audio
                 | element.
-    audio(preload="auto")#tap-audio
+    audio
         source(src="assets/media/tap.wav")
         source(src="assets/media/tap.ogg")
         span

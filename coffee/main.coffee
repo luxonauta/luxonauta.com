@@ -1,24 +1,23 @@
 feather.replace()
 
-cursor = document.querySelector("#cursor")
 body = document.querySelector("body")
+cursor = document.querySelector("#cursor")
 buttons = document.querySelectorAll(".btn")
 brand = document.querySelector(".brand")
-brandSfx = document.querySelector("#brand-audio")
-tapSfx = document.querySelector("#tap-audio")
+audio = document.querySelectorAll("audio")
 
 body.addEventListener("mousemove", (e) => 
     cursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;")
 )
 
 brand.addEventListener("mouseover", () =>
-    brandSfx.play()
+    tryPlay(audio[0])
 )
 
 buttons.forEach((btn) => 
     btn.addEventListener("mouseover", () => 
         cursorToggle()
-        tapSfx.play()
+        tryPlay(audio[1])
     )
 
     btn.addEventListener("mouseout", () => 
@@ -29,3 +28,9 @@ buttons.forEach((btn) =>
 cursorToggle = () =>
     cursor.classList.toggle("hover")
     cursor.classList.toggle("highlight")
+
+tryPlay = (audio) =>
+    try
+            await audio.play()
+        catch e
+            console.log("Couldn't play")
