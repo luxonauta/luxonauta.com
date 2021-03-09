@@ -1,5 +1,19 @@
 extends structure/_layout
 block content
+    audio(preload="auto")#brand-audio
+            source(src="assets/media/brand.wav")
+            source(src="assets/media/brand.ogg")
+            span
+                | Your browser does not support the
+                code audio
+                | element.
+    audio(preload="auto")#tap-audio
+        source(src="assets/media/tap.wav")
+        source(src="assets/media/tap.ogg")
+        span
+            | Your browser does not support the
+            code audio
+            | element.
     #cursor
     main.lx-container-90
         .lx-row.flow-w-col.has-gap-2
